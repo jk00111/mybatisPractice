@@ -5,13 +5,13 @@
 <configuration>
 	<typeAliases>
 		<!-- 테스트 중 -->
-		<typeAlias type="com.kos.tr.app.vo.AppDocVO" alias="appdocvo"/>
-		<typeAlias type="com.kos.tr.member.vo.TerraMemberVO" alias="terramembervo"/>
-		<typeAlias type="com.kos.tr.app.vo.AppDraftVO" alias="appdraftvo"/>
-		<typeAlias type="com.kos.tr.app.vo.AppVacationVO" alias="appvacationvo"/>
-		<typeAlias type="com.kos.tr.app.vo.AppExpandVO" alias="appexpandvo"/>
-		<typeAlias type="com.kos.tr.board.vo.TerraBoardVO" alias="terraboardvo"/>
-		<typeAlias type="com.kos.tr.rboard.vo.TerraRboardVO" alias="terrarboardvo"/>
-		<typeAlias type="com.kos.tr.work.vo.TerraWorkVO" alias="terraworkvo" />
+		<typeAlias type="com.kos.tr.old.app.vo.AppDocVO" alias="appdocvo"/>
+		<typeAlias type="com.kos.tr.old.member.vo.TerraMemberVO" alias="terramembervo"/>
+		<typeAlias type="com.kos.tr.old.app.vo.AppDraftVO" alias="appdraftvo"/>
+		<typeAlias type="com.kos.tr.old.app.vo.AppVacationVO" alias="appvacationvo"/>
+		<typeAlias type="com.kos.tr.old.app.vo.AppExpandVO" alias="appexpandvo"/>
+		<typeAlias type="com.kos.tr.old.post.vo.TerraBoardVO" alias="terraboardvo"/>
+		<typeAlias type="com.kos.tr.old.rboard.vo.TerraRboardVO" alias="terrarboardvo"/>
+		<typeAlias type="com.kos.tr.old.work.vo.TerraWorkVO" alias="terraworkvo" />
 	</typeAliases>
 </configuration>

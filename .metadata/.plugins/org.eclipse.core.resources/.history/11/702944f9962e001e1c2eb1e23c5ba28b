@@ -1,8 +1,0 @@
-package com.kos.tr.common;
-
-public class Snippet {
-	public static void main(String[] args) {
-		EncryptSHA
-	}
-}
-

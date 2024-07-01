@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%-- <%@ page import="com.kos.tr.common.CodeUtil" %> --%>
-<%@ page import="com.kos.tr.board.vo.TerraBoardVO" %>
+<%@ page import="com.kos.tr.old.post.vo.TerraBoardVO" %>
 <%@ page import="java.util.List" %>
 
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -87,31 +87,31 @@
 							<td colspan="2" align="center">게시판 글 수정하기</td>
 						</tr>
 						<tr>
-							<td class="board">글 번호</td>
+							<td class="post">글 번호</td>
 							<td><input type="text" name="bnum" id="bnum" value="<%= _tbvo.getBnum() %>" readonly></td>
 						</tr>
 <!-- 						<tr> -->
-<!-- 							<td class="board">이름</td> -->
+<!-- 							<td class="post">이름</td> -->
 <%-- 							<td><input type="text" name="mnum" id="mnum" value="<%= _tbvo.getMnum() %>" readonly></td> --%>
 <!-- 						</tr> -->
 						<tr>
-							<td class="board">제목</td>
+							<td class="post">제목</td>
 							<td><input type="text" name="bsubject" id="bsubject" value="<%= _tbvo.getBsubject() %>" style="width:100px" readonly></td>
 						</tr>
 						<tr>
-							<td class="board">소개글</td>
+							<td class="post">소개글</td>
 							<td><textarea name="bmemo" id="bmemo" rows="5" cols="50"><%= _tbvo.getBmemo() %></textarea></td>
 						</tr>
 						<tr>
-							<td class="board">사진</td>
+							<td class="post">사진</td>
 							<td><img src="/tr_spring/fileupload/tboard/<%= _tbvo.getBfile() %>" border="1" width="40" height="50" alt="image"></td>
 						</tr>
 						<tr>
-							<td class="board">등록일</td>
+							<td class="post">등록일</td>
 							<td><input type="date" name="sbinsertdate" id="sbinsertdate" value="<%= _tbvo.getInsertdate() %>" readonly /></td>
 						</tr>
 						<tr>
-							<td class="board">수정일</td>
+							<td class="post">수정일</td>
 							<td><input type="date" name="sbupdatedate" id="sbupdatedate" value="<%= _tbvo.getUpdatedate() %>" readonly /></td>
 						</tr>
 						<tr>

@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Mon Aug 07 18:04:06 KST 2023
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\kosmo\\.m2\\repository\\org\\springframework\\spring-web\\4.3.16.RELEASE\\spring-web-4.3.16.RELEASE.jar=WEB-INF/lib/spring-web-4.3.16.RELEASE.jar

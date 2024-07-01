@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.kos.tr.app.vo.AppDraftVO"%>
-<%@page import="com.kos.tr.member.vo.TerraMemberVO"%>
-<%@page import="com.kos.tr.common.CodeUtil"%>
+<%@page import="com.kos.tr.old.app.vo.AppDraftVO"%>
+<%@page import="com.kos.tr.old.member.vo.TerraMemberVO"%>
+<%@page import="com.kos.tr.old.common.CodeUtil"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.kos.tr.common.T_Session"%>
+<%@page import="com.kos.tr.old.common.T_Session"%>
 <%@page import="java.util.Arrays" %>
-<%@page import="com.kos.tr.app.vo.AppVacationVO" %>
+<%@page import="com.kos.tr.old.app.vo.AppVacationVO" %>
 <%
 	ArrayList<TerraMemberVO> aList = (ArrayList<TerraMemberVO>)request.getAttribute("aList"); // 결재자들의 정보 조회
 	ArrayList<TerraMemberVO> bList = (ArrayList<TerraMemberVO>)request.getAttribute("bList"); // 참조자들의 정보 조회

@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.List" %>
-<%@page import="com.kos.tr.common.CodeUtil"%>
-<%@page import="com.kos.tr.app.vo.AppDocVO"%>
-<%@page import="com.kos.tr.member.vo.TerraMemberVO"%>
+<%@page import="com.kos.tr.old.common.CodeUtil"%>
+<%@page import="com.kos.tr.old.app.vo.AppDocVO"%>
+<%@page import="com.kos.tr.old.member.vo.TerraMemberVO"%>
 	<%
 		Object obj = request.getAttribute("aList");
 		

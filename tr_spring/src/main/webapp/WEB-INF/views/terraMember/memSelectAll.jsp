@@ -3,8 +3,8 @@
    
 <%@ page import="org.apache.log4j.LogManager" %>  
 <%@ page import="org.apache.log4j.Logger" %>   
-<%@page import="com.kos.tr.common.CodeUtil"%>
-<%@page import="com.kos.tr.member.vo.TerraMemberVO"%>     
+<%@page import="com.kos.tr.old.common.CodeUtil"%>
+<%@page import="com.kos.tr.old.member.vo.TerraMemberVO"%>
 <%@page import="java.util.ArrayList"%>
 
 

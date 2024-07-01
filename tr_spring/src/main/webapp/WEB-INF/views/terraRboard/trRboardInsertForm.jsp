@@ -1,13 +1,13 @@
-<%@page import="com.kos.tr.common.CodeUtil"%>
+<%@page import="com.kos.tr.old.common.CodeUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ page import="com.kos.tr.board.vo.TerraBoardVO" %>
-<%@ page import="com.kos.tr.rboard.vo.TerraRboardVO" %>
-<%@ page import="com.kos.tr.member.vo.TerraMemberVO" %>
+<%@ page import="com.kos.tr.old.post.vo.TerraBoardVO" %>
+<%@ page import="com.kos.tr.old.rboard.vo.TerraRboardVO" %>
+<%@ page import="com.kos.tr.old.member.vo.TerraMemberVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.kos.tr.common.CodeUtil" %>
+<%@ page import="com.kos.tr.old.common.CodeUtil" %>
 
 <%@ page import="org.apache.log4j.LogManager" %>
 <%@ page import="org.apache.log4j.Logger" %>
@@ -290,7 +290,7 @@
 				  background-color:#E2F0D9;
 			}
 			
-			.board{
+			.post{
 				width:130px;
 				background-color:#E2F0D9 ;
 			}
@@ -311,7 +311,7 @@
 				
 				<table>
 					<tr>
-						<th class="board" name="mname" id="mname">
+						<th class="post" name="mname" id="mname">
 							<%= CodeUtil.dappVal(mvo.getMdeptno()) %>
 							<%= mvo.getMname() %>
 						</th>
@@ -322,7 +322,7 @@
 						
 					</tr>
 					<tr>
-						<td class="board" >댓글<br><br>
+						<td class="post" >댓글<br><br>
 							<div id="bytes" style="width:100px; height:20px; border:1px solid gray;color:gray; "><span style="color:gray;"class="bytes">0</span>bytes</div>
 						</td>
 					</tr>

@@ -14,7 +14,7 @@
 <%@ page import="com.mongodb.ServerAddress" %>
 <%@ page import="org.bson.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.kos.tr.main.controller.Flask" %>
+<%@ page import="com.kos.tr.old.main.controller.Flask" %>
 <%
 	
 %>

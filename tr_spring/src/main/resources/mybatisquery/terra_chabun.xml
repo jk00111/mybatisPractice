@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
           "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
           
-<mapper namespace="com.kos.tr.common.chabun.dao.TerraChabunDAO">
+<mapper namespace="com.kos.tr.old.common.chabun.dao.TerraChabunDAO">
 
 <select id="getTerraMemberChabun" resultType="terramembervo">
 		SELECT LPAD(NVL(MAX(SUBSTR(A.MNUM, -4)), 0) + 1, 4, 0)  MNUM FROM TR_MEMBER A

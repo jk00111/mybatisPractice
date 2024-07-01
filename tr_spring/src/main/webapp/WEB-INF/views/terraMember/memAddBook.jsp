@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.kos.tr.common.CodeUtil"%>
-<%@page import="com.kos.tr.member.vo.TerraMemberVO"%>
+<%@page import="com.kos.tr.old.common.CodeUtil"%>
+<%@page import="com.kos.tr.old.member.vo.TerraMemberVO"%>
 <%
 	
 	ArrayList<TerraMemberVO> uList = (ArrayList<TerraMemberVO>)request.getAttribute("uList");

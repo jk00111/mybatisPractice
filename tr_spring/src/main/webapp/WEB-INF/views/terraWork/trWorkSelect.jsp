@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import="java.util.List" %>
-<%@ page import="com.kos.tr.work.vo.TerraWorkVO" %>
+<%@ page import="com.kos.tr.old.work.vo.TerraWorkVO" %>
 
 <%@ page import="org.slf4j.Logger" %>
 <%@ page import="org.slf4j.LoggerFactory" %>

@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="com.kos.tr.board.vo.TerraBoardVO" %>
+<%@ page import="com.kos.tr.old.post.vo.TerraBoardVO" %>
 <%-- <%@ page import="com.kos.tr.common.CodeUtil" %> --%>
 <%@ page import="java.util.List" %>
 
@@ -101,7 +101,7 @@
 					text-align: right;
 			}
 			
-			.board{
+			.post{
 				width:130px;
 				background-color:#E2F0D9;
 			}
@@ -136,7 +136,7 @@
 					<table>
 					
 						<tr>
-							<th class="board">글 번호</th>
+							<th class="post">글 번호</th>
 							<td colspan="2" name="bnum" id="bnum" value=""><%= _tbvo.getBnum() %></td>
 							<td style="text-align: center" class="td_2" colspan="3">
 								<font size="3" style="color:blue;">
@@ -145,7 +145,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th class="board">제목</th>
+							<th class="post">제목</th>
 							<td colspan="4" style="text-align:left; width:400;">
 								<font size="4" style="color:black;"><%= _tbvo.getBsubject() %></font>
 <%-- 								<input type="hidden" name="bnum" id="bnum" value="<%= "B202307050001"%>" /> --%>

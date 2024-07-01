@@ -4,8 +4,8 @@
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.kos.tr.work.vo.TerraWorkVO" %>
-<%@ page import="com.kos.tr.member.vo.TerraMemberVO" %>
+<%@ page import="com.kos.tr.old.work.vo.TerraWorkVO" %>
+<%@ page import="com.kos.tr.old.member.vo.TerraMemberVO" %>
 
 <%@ page import="org.slf4j.Logger" %>
 <%@ page import="org.slf4j.LoggerFactory" %>

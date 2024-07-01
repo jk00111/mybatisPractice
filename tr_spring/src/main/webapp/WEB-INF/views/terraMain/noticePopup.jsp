@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.kos.tr.board.vo.TerraBoardVO" %>
+<%@ page import="com.kos.tr.old.post.vo.TerraBoardVO" %>
 <%@ page import="java.util.List" %>
 
 <% request.setCharacterEncoding("UTF-8"); %>
