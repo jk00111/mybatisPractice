@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kos.tr.rboard.dao.TerraRboardDAO"> 
+
+<insert id="trRboardInsert" parameterType="terrarboardvo">
+		
+		INSERT INTO TR_RBOARD ( 
+								 RNUM
+								,BNUM
+								,MNUM
+								,MNAME
+								,MDEPTNO
+								,RMEMO
+								,DELETEYN
+								,INSERTDATE
+								,UPDATEDATE
+								)
+				VALUES		(	
+								 #{rnum}
+								,#{bnum}
+								,#{mnum}
+								,#{mname}
+								,#{mdeptno}
+								,#{rmemo}
+								,'Y'
+								,SYSDATE
+								,SYSDATE
+							)
+</insert>
+
+
+
+<select id="trRboardSelectAll" parameterType="terrarboardvo" resultType="terrarboardvo">
+
+	SELECT		 A.RNUM
+				,A.BNUM
+				,A.MNUM
+				,A.MNAME
+				,A.MDEPTNO
+				,A.RMEMO
+				,A.INSERTDATE
+	FROM		 TR_RBOARD A 
+	WHERE		 DELETEYN = 'Y'
+	AND			 A.BNUM		= #{bnum}
+	ORDER BY 1 
+</select>
+
+
+
+<update id="trRboardDelete" parameterType="terrarboardvo">
+
+	UPDATE		TR_RBOARD
+	   SET		DELETEYN	= 'N',
+	   			INSERTDATE	= SYSDATE
+	 WHERE		DELETEYN	= 'Y'
+	   AND		RNUM		= #{rnum}
+
+</update>
+
+</mapper>

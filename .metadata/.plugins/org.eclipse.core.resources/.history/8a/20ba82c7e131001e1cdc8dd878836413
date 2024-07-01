@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+          
+<mapper namespace="com.kos.tr.board.dao.TerraBoardDAO">
+
+<!-- 입력 -->
+<insert id="tBoardInsert" parameterType="terraboardvo">
+
+	INSERT INTO TR_BOARD (
+							 BNUM
+							,MNUM
+							,BSUBJECT
+							,BMEMO
+							,BFILE
+							,DELETEYN
+							,UPDATEDATE
+							,INSERTDATE
+						)
+				VALUES  (
+							#{bnum, jdbcType=VARCHAR},
+							#{mnum, jdbcType=VARCHAR},
+							#{bsubject, jdbcType=VARCHAR},
+							#{bmemo, jdbcType=VARCHAR},
+							#{bfile, jdbcType=VARCHAR},
+							'Y',
+							SYSDATE,
+							SYSDATE
+						)
+
+</insert>
+
+<!-- 전체조회  -->
+<select id="tBoardSelectAll" parameterType="terraboardvo" resultType="terraboardvo" >
+
+SELECT * FROM (	
+		SELECT	 A.BNUM			BNUM
+				,A.BSUBJECT		BSUBJECT
+				,A.BMEMO		BMEMO
+				,A.BFILE		BFILE
+				,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD HH24:MM:SS')	UPDATEDATE
+				,A.BHIT			BHIT
+				,B.MNAME		MNAME
+				,B.MNUM			MNUM
+				,CEIL(ROW_NUMBER() OVER(ORDER BY A.BNUM DESC) / #{pageSize} ) pageSize
+				,COUNT(A.BNUM) OVER() AS totalCount
+				FROM		TR_BOARD A , TR_MEMBER B
+				WHERE		A.DELETEYN = 'Y'
+				AND 		A.MNUM = B.MNUM
+				ORDER BY BNUM DESC;
+	WHERE pageSize = #{curPage}
+
+</select>
+
+<!-- 조건조회 -->
+<select id="tBoardSelect" parameterType="terraboardvo" resultType="terraboardvo">
+
+	SELECT		 A.BNUM			BNUM
+				,A.BSUBJECT		BSUBJECT
+				,A.BMEMO		BMEMO
+				,A.BFILE		BFILE
+				,A.BHIT			BHIT
+				,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD')		INSERTDATE
+				,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD')		UPDATEDATE
+	FROM		TR_BOARD A
+	WHERE		DELETEYN = 'Y'
+	AND			A.BNUM   = #{bnum}
+	
+</select>
+
+
+<!-- 조회수 -->
+<update id="tBoardBhit" parameterType="terraboardvo">
+
+	UPDATE		TR_BOARD
+	SET			BHIT = (SELECT NVL(MAX(BHIT), 0) + 1 FROM TR_BOARD
+						WHERE DELETEYN = 'Y'
+						AND	  BNUM	= #{bnum} )
+	WHERE		DELETEYN = 'Y'
+	AND			BNUM = #{bnum}
+	
+	
+</update>
+
+<!-- 수정 -->
+<update id="tBoardUpdate" parameterType="terraboardvo">
+
+	UPDATE		 TR_BOARD
+	SET			 BSUBJECT	= #{bsubject, jdbcType=VARCHAR}
+				,BMEMO		= #{bmemo, jdbcType=VARCHAR}
+<!-- 				,BFILE		= #{bfile, jdbcType=VARCHAR} -->
+	WHERE		DELETEYN = 'Y'
+	AND			BNUM	 = #{bnum}
+
+
+
+</update>
+
+<!-- 삭제  -->
+<update id="tBoardDelete" parameterType="terraboardvo">
+
+	UPDATE	TR_BOARD
+	SET		DELETEYN = 'N'
+			,UPDATEDATE = SYSDATE
+	WHERE	DELETEYN = 'Y'
+	AND		BNUM	= #{bnum}
+
+
+</update>
+
+
+
+</mapper>
+          

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.kos.tr.HomeController"/>
+<fullyQualifiedTypeName name="com.kos.tr.test.vo.TerraMemberVO"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="com.kos.tr.member.service.TerraMemberService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.logging.LogManager"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.LogManager"/>
+<fullyQualifiedTypeName name="com.kos.tr.app.dao.TerraAppDAO"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="com.kos.tr.common.chabun.service.TerraChabunService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="com.kos.tr.common.CodeUtil"/>
+<fullyQualifiedTypeName name="com.kos.tr.app.vo.AppVacationVO"/>
+<fullyQualifiedTypeName name="com.kos.tr.member.vo.TerraMemberVO"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="com.kos.tr.app.service.TerraAppService"/>
+<fullyQualifiedTypeName name="com.kos.tr.app.vo.AppDocVO"/>
+<fullyQualifiedTypeName name="com.kos.tr.app.vo.AppExpandVO"/>
+<fullyQualifiedTypeName name="com.kos.tr.board.controller.TerraBoardController"/>
+<fullyQualifiedTypeName name="com.kos.tr.common.T_Session"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+          
+<mapper namespace="com.kos.tr.member.dao.TerraMemberDAO">
+
+<insert id="tMemInsert" parameterType="terramembervo">
+
+
+	INSERT INTO TR_MEMBER (
+								 MNUM
+								,MNAME
+								,MID
+								,MPW
+								,MHP
+								,MTEL
+								,MEMAIL
+								,MGENDER
+								,MBIRTH
+								,MZIPCODE
+								,MROADADDR
+								,MROADDETAIL
+								,MJIBUN
+								,MDEPTNO
+								,MGRNO
+								,MPOSITION
+								,MJOB
+								,MPHOTO
+								,MHOLIDAY
+								,MPASSYN
+								,MCURYN
+								,HIREDATE
+								,DELETEYN
+								,INSERTDATE
+								,UPDATEDATE
+							
+							)
+				   VALUES (		#{mnum, jdbcType=VARCHAR},
+				   				#{mname, jdbcType=VARCHAR},
+				   				#{mid, jdbcType=VARCHAR},
+				   				#{mpw, jdbcType=VARCHAR},
+				   				#{mhp, jdbcType=VARCHAR},
+				   				#{mtel, jdbcType=VARCHAR},
+				   				#{memail, jdbcType=VARCHAR},
+				   				#{mgender, jdbcType=VARCHAR},
+				   				#{mbirth, jdbcType=VARCHAR},
+				   				#{mzipcode, jdbcType=VARCHAR},
+				   				#{mroadaddr, jdbcType=VARCHAR},
+				   				#{mroaddetail, jdbcType=VARCHAR},
+				   				#{mjibun, jdbcType=VARCHAR},
+				   				#{mdeptno, jdbcType=VARCHAR},
+				   				#{mgrno, jdbcType=VARCHAR},
+								#{mposition, jdbcType=VARCHAR},
+								#{mjob, jdbcType=VARCHAR},
+								#{mphoto, jdbcType=VARCHAR},
+								'15',
+								'N',
+								'Y',
+								TO_DATE(#{hiredate, jdbcType=VARCHAR}),
+								'Y',
+								SYSDATE,
+								SYSDATE
+								
+							
+							)
+
+
+
+</insert>
+
+
+<select id="tMemIdcheck" parameterType="terramembervo" resultType="terramembervo">
+
+	SELECT	A.MID		  MID
+	FROM	TR_MEMBER A
+	WHERE	A.DELETEYN  = 'Y'
+	AND		A.MID		= #{mid}
+
+</select>
+
+<select id="tMemSelectAll" parameterType="terramembervo" resultType="terramembervo">
+	SELECT * FROM (		
+		SELECT	 A.MNUM						MNUM
+				,A.MNAME					MNAME
+				,A.MID						MID
+				,A.MPW						MPW
+				,A.MHP						MHP
+				,A.MTEL						MTEL
+				,A.MEMAIL					MEMAIL
+				,A.MGENDER					MGENDER
+				,A.MBIRTH					MBIRTH
+				,A.MZIPCODE					MZIPCODE
+				,A.MROADADDR				MROADADDR
+				,A.MROADDETAIL				MROADDETAIL
+				,A.MJIBUN					MJIBUN
+				,A.MDEPTNO					MDEPTNO
+				,A.MGRNO					MGRNO
+				,A.MPOSITION				MPOSITION
+				,A.MJOB						MJOB
+				,A.MPHOTO					MPHOTO
+				,A.MHOLIDAY					MHOLIDAY
+				,A.MPASSYN					MPASSYN
+				,A.MCURYN					MCURYN
+				,TO_CHAR(TO_DATE(A.HIREDATE), 'YYYY-MM-DD')					HIREDATE
+				,A.DELETEYN					DELETEYN
+				,TO_CHAR(TO_DATE(A.INSERTDATE), 'YYYY-MM-DD')				INSERTDATE
+				,TO_CHAR(TO_DATE(A.UPDATEDATE), 'YYYY-MM-DD')				UPDATEDATE
+				,CEIL(ROW_NUMBER() OVER(ORDER BY A.MNUM DESC) / #{pageSize} ) pageSize
+				,COUNT(A.MNUM) OVER() AS totalCount
+		FROM	TR_MEMBER A
+		WHERE	A.DELETEYN = 'Y'
+		ORDER BY A.MPOSITION DESC
+		)
+	WHERE pageSize = #{curPage}
+
+</select>
+
+<select id="tMemSelect" parameterType="terramembervo" resultType="terramembervo">
+
+	SELECT	 A.MNUM						MNUM
+			,A.MNAME					MNAME
+			,A.MID						MID
+			,A.MPW						MPW
+			,A.MHP						MHP
+			,A.MTEL						MTEL
+			,A.MEMAIL					MEMAIL
+			,A.MGENDER					MGENDER
+			,A.MBIRTH					MBIRTH
+			,A.MZIPCODE					MZIPCODE
+			,A.MROADADDR				MROADADDR
+			,A.MROADDETAIL				MROADDETAIL
+			,A.MJIBUN					MJIBUN
+			,A.MDEPTNO					MDEPTNO
+			,A.MGRNO					MGRNO
+			,A.MPOSITION				MPOSITION
+			,A.MJOB						MJOB
+			,A.MPHOTO					MPHOTO
+			,A.MHOLIDAY					MHOLIDAY
+			,A.MPASSYN					MPASSYN
+			,A.MCURYN					MCURYN
+			,TO_CHAR(TO_DATE(A.HIREDATE), 'YYYY-MM-DD')					HIREDATE
+			,A.DELETEYN					DELETEYN
+			,TO_CHAR(TO_DATE(A.INSERTDATE), 'YYYY-MM-DD')				INSERTDATE
+			,TO_CHAR(TO_DATE(A.UPDATEDATE), 'YYYY-MM-DD')				UPDATEDATE
+
+	FROM	TR_MEMBER A
+	WHERE	A.DELETEYN = 'Y'
+	AND		A.MNUM = #{mnum}
+
+
+</select>
+
+
+<update id="tMemUpdate" parameterType="terramembervo">
+
+	UPDATE   TR_MEMBER
+	SET		 A.MNAME					= #{mname}
+			,A.MID						= #{mid}
+			,A.MPW						= #{mpw}
+			,A.MHP						= #{mhp}
+			,A.MTEL						= #{mtel}
+			,A.MEMAIL					= #{memail}
+			,A.MGENDER					= #{mgender}
+			,A.MBIRTH					= #{mbirth}
+			,A.MZIPCODE					= #{mzipcode}
+			,A.MROADADDR				= #{mroadaddr}
+			,A.MROADDETAIL				= #{mroaddetail}
+			,A.MJIBUN					= #{mjibun}
+			,A.MDEPTNO					= #{mdeptno}
+			,A.MGRNO					= #{mgrno}
+			,A.MPOSITION				= #{mposition}
+			,A.MJOB						= #{mjob}
+			,A.MPHOTO					= #{mphoto}
+			,A.MHOLIDAY					= #{mholiday}
+			,A.MPASSYN					= #{mpassyn}
+			,A.MCURYN					= 'Y'
+			,A.HIREDATE					= TO_DATE(#{hiredate})
+			,UPDATEDATE					= SYSDATE
+	WHERE	DELETEYN	= 'Y'
+	AND 	MNUM 		= #{mnum}
+						
+</update>
+
+
+<update id="tMemDelete" parameterType="terramembervo">
+	
+	UPDATE	TR_MEMBER
+	SET		DELETEYN	= 'N'
+			,UPDATEDATE	= SYSDATE
+	WHERE	DELETEYN	= 'Y'
+	AND		MNUM		=#{mnum}
+	
+</update>
+
+<select id="tMemSelectId" parameterType="terramembervo" resultType="terramembervo">
+
+	SELECT	 A.MNUM						MNUM
+			,A.MNAME					MNAME
+			,A.MID						MID
+			,A.MPW						MPW
+			,A.MHP						MHP
+			,A.MTEL						MTEL
+			,A.MEMAIL					MEMAIL
+			,A.MGENDER					MGENDER
+			,A.MBIRTH					MBIRTH
+			,A.MZIPCODE					MZIPCODE
+			,A.MROADADDR				MROADADDR
+			,A.MROADDETAIL				MROADDETAIL
+			,A.MJIBUN					MJIBUN
+			,A.MDEPTNO					MDEPTNO
+			,A.MGRNO					MGRNO
+			,A.MPOSITION				MPOSITION
+			,A.MJOB						MJOB
+			,A.MPHOTO					MPHOTO
+			,A.MHOLIDAY					MHOLIDAY
+			,A.MPASSYN					MPASSYN
+			,A.MCURYN					MCURYN
+			,TO_CHAR(TO_DATE(A.HIREDATE), 'YYYY-MM-DD')					HIREDATE
+			,A.DELETEYN					DELETEYN
+			,TO_CHAR(TO_DATE(A.INSERTDATE), 'YYYY-MM-DD')				INSERTDATE
+			,TO_CHAR(TO_DATE(A.UPDATEDATE), 'YYYY-MM-DD')				UPDATEDATE
+
+	FROM	TR_MEMBER A
+	WHERE	A.DELETEYN = 'Y'
+	AND		A.MID = #{mid}
+
+
+</select>
+
+<select id="tMemSelectProxy" parameterType="terramembervo" resultType="terramembervo">
+
+		SELECT 	 MNUM 
+		,MNAME
+		,MCURYN
+		FROM TR_MEMBER 
+		WHERE MPROXY = #{mnum}
+
+</select>
+
+
+</mapper>

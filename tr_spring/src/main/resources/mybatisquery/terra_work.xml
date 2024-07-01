@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+          
+<mapper namespace="com.kos.tr.work.dao.TerraWorkDAO">
+
+<insert id="trWorkInsert" parameterType="terraworkvo">
+
+
+	INSERT INTO TR_WORK (
+							 WNUM
+							,MNUM
+							,STARTDATE
+							,ENDDATE
+							,WSTATE
+							,DELETEYN
+							,INSERTDATE
+							,UPDATEDATE
+							)
+			   	VALUES (	
+			   				#{wnum, jdbcType=VARCHAR},
+			   				#{mnum, jdbcType=VARCHAR},
+			   				#{startdate,jdbcType=VARCHAR},
+			   				#{enddate,jdbcType=VARCHAR},
+			   				#{wstate, jdbcType=VARCHAR},
+			   				'Y',
+							SYSDATE,
+							SYSDATE
+							)
+
+</insert>
+
+<select id="trWorkSelect" parameterType="terraworkvo" resultType="terraworkvo">
+	SELECT   	 
+			 A.WNUM 		WNUM
+			,A.MNUM			MNUM
+			,A.STARTDATE	STARTDATE
+			,NVL(A.ENDDATE, '00,')		ENDDATE
+			,A.WSTATE		WSTATE
+			,TO_CHAR(A.INSERTDATE, 'YYYYMMDD')	INSERTDATE
+			,TO_CHAR(A.UPDATEDATE, 'YYYYMMDD')	UPDATEDATE
+	FROM 	TR_WORK A
+	WHERE 	DELETEYN='Y'
+	AND		A.MNUM = #{mnum,jdbcType=VARCHAR}
+	AND		TO_CHAR(SYSDATE, 'YYYYMMDD')=TO_CHAR(A.INSERTDATE, 'YYYYMMDD')
+</select>
+
+<select id="trWorkSelectVacation" parameterType="terramembervo" resultType="terramembervo">
+	SELECT 
+			 A.MNUM			MNUM
+			,A.MHOLIDAY 	MHOLIDAY
+	FROM	TR_MEMBER A
+	WHERE	A.MNUM = #{mnum, jdbcType=VARCHAR}
+	AND		DELETEYN='Y'
+	AND		TO_CHAR(SYSDATE, 'YYYY')=TO_CHAR(A.INSERTDATE, 'YYYY')
+</select>
+
+<select id="trWorkSelectHour" parameterType="terraworkvo" resultType="terraworkvo">
+		SELECT   A.WNUM			WNUM
+				,A.MNUM			MNUM
+				,A.STARTDATE 	STARTDATE 
+				,A.ENDDATE 		ENDDATE
+		FROM	TR_WORK A 
+		WHERE	A.MNUM = #{mnum, jdbcType=VARCHAR}
+		AND		DELETEYN='Y'
+		AND		TO_CHAR(SYSDATE, 'YYYY')=TO_CHAR(A.INSERTDATE, 'YYYY')
+		ORDER BY 1 DESC
+</select>
+
+<update id="trWorkUpdateS" parameterType="terraworkvo">
+
+	UPDATE   TR_WORK
+	   SET   WSTATE		= #{wstate}
+	   		,STARTDATE	= #{startdate}
+	   		,UPDATEDATE = SYSDATE
+	 WHERE   DELETEYN = 'Y'
+	   AND   WNUM = #{wnum}
+
+</update>
+
+<update id="trWorkUpdateE" parameterType="terraworkvo">
+
+	UPDATE   TR_WORK
+	   SET   WSTATE		= #{wstate, jdbcType=VARCHAR}
+	   		,ENDDATE	= #{enddate, jdbcType=VARCHAR}
+	   		,UPDATEDATE = SYSDATE
+	 WHERE   DELETEYN = 'Y'
+	   AND   WNUM = #{wnum, jdbcType=VARCHAR}
+
+</update>
+
+<select id="trWorkEtc" parameterType="terraworkvo" resultType="terraworkvo">
+		SELECT   A.WNUM			WNUM
+				,A.MNUM			MNUM
+				,A.STARTDATE 	STARTDATE 
+				,A.ENDDATE 		ENDDATE
+				,A.INSERTDATE	INSERTDATE
+				,A.UPDATEDATE	UPDATEDATE
+				,A.WSTATE		WSTATE
+				,A.DELETEYN		DELETEYN
+		FROM	TR_WORK A 
+		WHERE	A.MNUM = #{mnum, jdbcType=VARCHAR}
+		AND		DELETEYN='Y'
+		AND		TO_CHAR(SYSDATE, 'YYYY')=TO_CHAR(A.INSERTDATE, 'YYYY')
+		ORDER BY 1 DESC
+</select>
+
+
+</mapper>

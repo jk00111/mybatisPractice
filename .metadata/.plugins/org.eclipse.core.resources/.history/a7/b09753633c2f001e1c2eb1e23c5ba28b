@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function getWeekdayCount() {
+	
+	const today = new Date();
+	const year = today.getFullYear();
+	const month = String(today.getMonth() + 1).padStart(2, '0');
+	const day = String(today.getDate()).padStart(2, '0');
+
+	startdate = `${year}-01-01`
+	enddate = `${year}-${month}-${day}`;
+	
+	  var count = 0;
+	 
+	
+	  // endDate까지 반복하면서 주말(토요일과 일요일)을 제외한 평일 수를 계산
+	  while (startdate <= enddate) {
+	    var dayOfWeek = currentDate.getDay();
+	    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+	      count++;
+	    }
+	    currentDate.setDate(currentDate.getDate() + 1);
+	  }
+	
+	  return count;
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+			
+		
+
+			table {
+				width: 550px;
+				border-collapse: collapse;
+				border: none;
+				border-radius: 10px;
+			}
+			
+			table {
+				padding: px;
+				border: none;  
+				text-align: left;	
+			}
+			
+			div {		 
+				margin: 0 auto; 		
+				border:1px solid #6d82f3;
+				display:table;
+			}	
+			
+			.a {
+				background-color: #E2F0D9;
+				width: 90px;
+				height: 30px;
+				font-weight: bold;
+				text-align: center;
+			}
+			
+			.b {
+				background-color: #fff;
+			}
+			
+			
+			.U {
+				height:30px;
+				background-color: #c5dfb9;
+				text-align: center;
+			}
+		
+			td, th {
+				 padding: 5px;
+			}
+		
+			
+			table, th, td {
+		  		border: 1px solid black;  		
+			}
+					
+
+			.mem {
+				margin-bottom: 25px;
+			}
+
+			.name{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			
+			.name .h2{
+				text-align: center;
+			}
+			
+			.mem > label{
+				text-align: center;
+			}
+			
+			
+
+
+			h3 {
+				text-align: center;
+			}	
+
+			.but{
+				background-color: #c5dfb9;
+				text-align: center;
+			}
+			
+			.input {
+				border:0 solid black;	
+				background-color: #E2F0D9;
+			}
+
+
+			#preview {
+				width: 200px;
+				height: 200px;
+				object-fit: cover;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+
+			button{
+				width: 70px;
+				height: 30px;
+				margin: 10px auto;
+				border-radius: 10px; /* 모서리를 둥글게 만듦 */
+				display: grid;
+				play-during: center;
+			}
+
+			placeholder{
+				text-align: left;	
+			}
