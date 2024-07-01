@@ -4,6 +4,8 @@ import com.kos.tr.news.board.dto.PostDTO;
 import com.kos.tr.news.board.entity.Post;
 import com.kos.tr.news.board.repository.BoardRepository;
 import com.kos.tr.news.board.service.BoardService;
+import com.kos.tr.news.member.entity.Member;
+import com.kos.tr.news.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +16,12 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository repository;
+    private final MemberService memberService;
 
     @Override
     public void createPost(PostDTO dto) {
-        Post post = Post.newPost(dto);
+        Member writer = memberService.findOne(dto.getUserId());
+        Post post = Post.newPost(dto, writer);
 
         repository.create(post);
     }

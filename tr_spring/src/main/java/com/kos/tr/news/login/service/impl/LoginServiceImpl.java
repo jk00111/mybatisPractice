@@ -19,16 +19,12 @@ public class LoginServiceImpl implements LoginService {
     public boolean loginCheck(LoginDTO dto) {
         Member member = memberService.findOne(dto.getLongId());
 
-        if (isExist(member)){
+        if (repository.loginCheck(member)){
             return true;
         }
 
         loginFail(member);
         return false;
-    }
-
-    private boolean isExist(Member member){
-        return repository.loginCheck(member) == 1;
     }
 
     private void loginFail(Member member){

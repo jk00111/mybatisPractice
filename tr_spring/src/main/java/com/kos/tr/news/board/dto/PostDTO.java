@@ -1,9 +1,10 @@
 package com.kos.tr.news.board.dto;
 
-import com.kos.tr.news.member.entity.Member;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class PostDTO {
 
     private String id;
@@ -15,9 +16,5 @@ public class PostDTO {
     private String insertDate;
     private String updateDate;
 
-    private Member member;
-
-    public void setWriter(Member member){
-        this.member = member;
-    }
+    private String userId;
 }

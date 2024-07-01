@@ -18,12 +18,10 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
-    private final MemberService memberService;
 
     @PostMapping
     public ResponseEntity<String> createPost(PostDTO dto, Session session){
-        Member writer = memberService.findOne(session.getUserUid());
-        dto.setWriter(writer);
+        dto.setUserId(session.getUserUid());
 
         boardService.createPost(dto);
         return ResponseEntity.ok().build();

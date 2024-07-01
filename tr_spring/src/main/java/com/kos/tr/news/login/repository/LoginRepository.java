@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginRepository {
 
-    int loginCheck(Member member);
+    boolean loginCheck(Member member);
     void updateFail(Member member);
     void lock(Member member);
 }
